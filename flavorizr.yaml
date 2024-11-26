@@ -1,0 +1,27 @@
+flavors:
+  dev:
+    app:
+      name: "[DEV] Aegislabs"
+
+    android:
+      applicationId: "com.aegislabs.app"
+    ios:
+      bundleId: "com.aegislabs.app"
+
+  qa:
+    app:
+      name: "[QA] Aegislabs"
+
+    android:
+      applicationId: "com.aegislabs.app"
+    ios:
+      bundleId: "com.aegislabs.app"
+
+  prod:
+    app:
+      name: "Aegislabs"
+
+    android:
+      applicationId: "com.aegislabs.app"
+    ios:
+      bundleId: "com.aegislabs.app"

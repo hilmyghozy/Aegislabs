@@ -1,0 +1,72 @@
+format:
+  - fvm dart format lib .
+  - fvm dart run import_sorter:main
+  - fvm flutter format lib
+
+build_once: fvm dart run build_runner build --delete-conflicting-outputs
+# Run whenever start working. It will generate Freezed classes
+watch: fvm dart run build_runner watch --delete-conflicting-outputs
+
+slang:
+  - fvm dart run slang
+
+get:
+  - fvm flutter clean
+  - fvm dart pub get
+
+gen:
+  - fvm dart pub get
+  - fvm dart pub run build_runner build --delete-conflicting-outputs
+
+flavors:
+  - fvm dart run flutter_flavorizr -p android:buildGradle,android:androidManifest,ios:xcconfig,ios:buildTargets,ios:schema,ios:plist
+
+icon:
+  - fvm flutter pub run flutter_launcher_icons -f flutter_launcher_icons*
+
+build_apk_dev:
+  - fvm flutter clean
+  - fvm flutter pub get
+  - fvm flutter build apk --flavor dev -t lib/main_dev.dart
+
+build_apk_prod:
+  - fvm flutter clean
+  - fvm flutter pub get
+  - fvm flutter build apk --flavor prod -t lib/main_prod.dart
+
+build_apk:
+  - fvm flutter build apk --flavor prod -t lib/main_prod.dart
+
+build_app:
+  - fvm flutter build appbundle --flavor prod -t lib/main_prod.dart
+
+run_dev:
+  - fvm flutter run --flavor dev -t lib/main_dev.dart
+
+run_release:
+  - fvm flutter run --release --flavor prod -t lib/main_prod.dart
+
+start_ios:
+  - xcrun simctl list
+  - open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app/
+
+clean:
+  - fvm flutter clean
+  - fvm flutter pub get
+
+purge:
+  - pod deintegrate
+  #- rm Flutter/Flutter.podspec
+  - fvm flutter clean
+  - fvm flutter pub get
+  #- pod install
+  #- fvm flutter run
+
+purge_all:
+  - pod deintegrate
+  - rm Flutter/Flutter.podspec
+  - fvm flutter clean
+  - fvm flutter pub cache repair
+  - fvm flutter pub get
+  #- pod install
+  - fvm flutter run

@@ -1,0 +1,94 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "compounds": [
+        {
+            "name": "All_PROD",
+            "configurations": [
+                "Android-PROD",
+                "iPhone-PROD"
+            ],
+        },
+        {
+            "name": "All_DEV",
+            "configurations": [
+                "Android-DEV",
+                "iPhone-DEV"
+            ],
+        }
+    ],
+    "configurations": [
+			{
+            "name": "iPhone-DEV",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main_dev.dart",
+            "deviceId": "iPhone 16 Pro",
+            "args": [
+                "--target",
+                "lib/main_dev.dart",
+                "--flavor",
+                "dev"
+            ]
+        },
+        {
+            "name": "iPhone-PROD",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main_prod.dart",
+            "deviceId": "iphone",
+            "args": [
+                "--target",
+                "lib/main_prod.dart",
+                "--flavor",
+                "prod"
+            ]
+        },
+        {
+            "name": "Android-DEV",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main_dev.dart",
+            "deviceId": "android",
+            "args": [
+                "--target",
+                "lib/main_dev.dart",
+                "--flavor",
+                "dev"
+            ]
+        },
+        {
+            "name": "Android-PROD",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main_prod.dart",
+            "deviceId": "android",
+            "args": [
+                "--target",
+                "lib/main_prod.dart",
+                "--flavor",
+                "production"
+            ]
+        },
+        {
+            "name": "Real-Android-DEV",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main_dev.dart",
+            "deviceId": "2c2b791",
+            "args": [
+                "--target",
+                "lib/main_dev.dart",
+                "--flavor",
+                "dev"
+            ]
+        },
+    ]
+}
